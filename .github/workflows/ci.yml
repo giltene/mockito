@@ -29,7 +29,7 @@ jobs:
     # Definition of the build matrix
     strategy:
       matrix:
-        java: [11, 17]
+        java: [11, 11.0.8, 17]
         entry:
           - { mock-maker: 'mock-maker-default', member-accessor: 'member-accessor-default' }
           - { mock-maker: 'mock-maker-inline', member-accessor: 'member-accessor-module' }
@@ -47,9 +47,8 @@ jobs:
         fetch-depth: '0' # https://github.com/shipkit/shipkit-changelog#fetch-depth-on-ci
 
     - name: 2. Set up Java ${{ matrix.java }}
-      uses: actions/setup-java@v3
+      uses: zing-actions/setup-java@v1
       with:
-        distribution: 'zulu'
         java-version: ${{ matrix.java }}
 
     - name: 3. Validate Gradle wrapper
