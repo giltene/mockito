@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java: [17, 11, 11.0.8, 11.0.15, 11.0.11]
+        java: [17, 11, 11.0.8, 11.0.11, 11.0.12, 11.0.13, 11.0.14, 11.0.15, 11.0.16, 11.0.17]
         entry:
           - { mock-maker: 'mock-maker-default', member-accessor: 'member-accessor-default' }
           - { mock-maker: 'mock-maker-inline', member-accessor: 'member-accessor-module' }
