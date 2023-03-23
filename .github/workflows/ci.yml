@@ -28,6 +28,7 @@ jobs:
 
     # Definition of the build matrix
     strategy:
+      fail-fast: false
       matrix:
         java: [17]
         entry:
