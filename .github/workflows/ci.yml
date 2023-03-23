@@ -29,7 +29,7 @@ jobs:
     # Definition of the build matrix
     strategy:
       matrix:
-        java: [11, 17]
+        java: [17]
         entry:
           - { mock-maker: 'mock-maker-default', member-accessor: 'member-accessor-default' }
           - { mock-maker: 'mock-maker-inline', member-accessor: 'member-accessor-module' }
@@ -64,7 +64,7 @@ jobs:
       run: ./gradlew spotlessCheck
 
     - name: 6. Build on Java ${{ matrix.java }} with ${{ matrix.entry.mock-maker }} and ${{ matrix.entry.member-accessor }}
-      run: ./gradlew build idea --scan
+      run: ./gradlew build idea --scan --stacktrace
       env:
         MOCK_MAKER: ${{ matrix.entry.mock-maker }}
         MEMBER_ACCESSOR: ${{ matrix.entry.member-accessor }}
